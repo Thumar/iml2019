@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Helpful utilities for the LBN tutorial at the IML workshop 2019.
+Helpful utilities for the tutorial notebooks at the IML workshop 2019.
 """
 
 import os
@@ -18,8 +18,9 @@ print_ = functools.partial(six.print_, flush=True)
 # define directories and urls
 base_dir = os.path.dirname(os.path.abspath(__file__))
 data_dir = os.path.join(base_dir, "data")
-eos_dir = "/eos/user/m/mrieger/public/iml2019/lbn"
-eos_url = "https://cernbox.cern.ch/index.php/s/xDYiSmbleT3rip4/download?path=%2Flbn%2Fdata&files={}"
+eos_dir = "/eos/user/m/mrieger/public/iml2019"
+eos_dir_lbn = os.path.join(eos_dir, "lbn")
+eos_url_lbn = "https://cernbox.cern.ch/index.php/s/xDYiSmbleT3rip4/download?path=%2Flbn%2Fdata&files={}"
 
 # check if we have access to /eos or not
 has_eos = os.access(eos_dir, os.R_OK)
@@ -61,7 +62,7 @@ def load_lbn_data(level="low", sorting="gen", kind="train"):
         file_path = os.path.join(data_dir, file_name)
         if not os.path.exists(file_path):
             print_("downloading {} from CERNBox".format(file_name), flush=True)
-            download(eos_url.format(file_name), file_path)
+            download(eos_url_lbn.format(file_name), file_path)
     else:
         file_path = os.path.join(eos_dir, "data", file_name)
 

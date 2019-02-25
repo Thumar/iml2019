@@ -18,5 +18,8 @@ RUN pip install --upgrade lbn scinum wget matplotlib scikit-learn
 # create a custom home directory
 RUN mkdir -p /home/user && chmod a+rwX /home/user
 
+# load the 3pia/iml2019 repo
+RUN git clone https://github.com/3pia/iml2019.git /tutorial
+
 # default command (run_tutorial is defined in bashrc)
 CMD bash -i -l -c run_tutorial
