@@ -6,6 +6,9 @@ COPY bashrc /etc/bash.bashrc
 # default jupyter notebook port
 ENV NB_PORT 8888
 
+# workdir
+WORKDIR /tutorial
+
 # minimal software stack
 RUN apt-get update
 RUN apt-get install -y wget nano less htop git
