@@ -1,0 +1,9 @@
+six
+wget
+tensorflow
+numpy
+scipy
+matplotlib
+scikit-learn
+lbn
+scinum
