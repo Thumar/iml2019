@@ -27,6 +27,6 @@ action() {
         -e "NB_PORT=$DOCKER_PORT" \
         -p $DOCKER_PORT:$DOCKER_PORT \
         $user_opt \
-        3pia/iml2019 $@
+        riga/iml2019 $@
 }
 action "$@"
