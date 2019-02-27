@@ -11,8 +11,8 @@ action() {
     local repo_dir="$( cd "$( dirname "$this_dir" )" && pwd )"
 
     # some configs
-    [ -z "$DOCKER_ROOT" ] && DOCKER_ROOT="0"
-    [ -z "$DOCKER_PORT" ] && DOCKER_PORT="8888"
+    [ -z "$DOCKER_ROOT" ] && local DOCKER_ROOT="0"
+    [ -z "$DOCKER_PORT" ] && local DOCKER_PORT="8888"
 
     # user option for docker run, depends on whether to run as root or not
     local user_opt="-u $(id -u):$(id -g)"
