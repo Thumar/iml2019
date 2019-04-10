@@ -12,7 +12,7 @@ def is_interactive():
         return True
 
 
-def plot_images(images, labels=None, figsize=(10, 10), fname=None):
+def plot_images(images, labels=None, figsize=(8, 8), fname=None):
     """ Plot some images """
     n_examples = len(images)
     dim = np.ceil(np.sqrt(n_examples))
