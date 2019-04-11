@@ -74,13 +74,3 @@ def load_lbn_data(level="low", sorting="gen", kind="train"):
 def download(src, dst, bar=None):
     import wget
     return wget.download(src, out=dst, bar=bar)
-
-
-def make_dir(LOG_DIR, name=""):
-    import os
-    import time
-    import datetime
-    daytime = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
-    folder = LOG_DIR + "/"+ name + "_train_" + daytime.replace(" ", "_")
-    os.makedirs(folder)
-    return(folder)
