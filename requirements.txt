@@ -3,7 +3,10 @@ wget
 tensorflow
 numpy
 scipy
+pandas
 matplotlib
 scikit-learn
 lbn
 scinum
+jupyter_contrib_nbextensions
+RISE
