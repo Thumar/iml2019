@@ -12,7 +12,7 @@ def is_interactive():
         return True
 
 
-def plot_images(images, labels=None, figsize=(8, 8), fname=None):
+def plot_images(images, labels=None, figsize=(6, 6), fname=None):
     """ Plot some images """
     n_examples = len(images)
     dim = np.ceil(np.sqrt(n_examples))
@@ -72,8 +72,8 @@ def plot_footprint(footprint, axis, label=None):
     """Plot a map *footprint* for an detector array specified by *v_stations*. """
     xd, yd = rectangular_array(n=9)
     filter = footprint != 0
-    axis.scatter(xd[~filter], yd[~filter], c='grey', s=150, alpha=0.1, label="silent")
-    circles = axis.scatter(xd[filter], yd[filter], c=footprint[filter], s=150, alpha=1, label="loud")
+    axis.scatter(xd[~filter], yd[~filter], c='grey', s=110, alpha=0.1, label="silent")
+    circles = axis.scatter(xd[filter], yd[filter], c=footprint[filter], s=110, alpha=1, label="loud")
     cbar = plt.colorbar(circles, ax=axis)
     cbar.set_label('signal [a.u.]')
     axis.grid(True)
@@ -88,7 +88,7 @@ def plot_footprint(footprint, axis, label=None):
 
 def plot_multiple_footprints(footprint, fname=None, log_dir='.', title='', epoch='', nrows=2, ncols=2, labels=None):
     """ Plots the time and signal footprint in one figure """
-    fig, sub = plt.subplots(nrows=nrows, ncols=ncols, figsize=(9, 7))
+    fig, sub = plt.subplots(nrows=nrows, ncols=ncols, figsize=(7, 5))
     for i in range(ncols):
         for j in range(nrows):
             idx = np.random.choice(np.arange(footprint.shape[0]))
