@@ -3,6 +3,7 @@ wget
 tensorflow
 numpy
 scipy
+pandas
 matplotlib
 scikit-learn
 lbn
