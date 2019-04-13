@@ -8,7 +8,7 @@ action() {
         local this_file="${BASH_SOURCE[0]}"
     fi
     local this_dir="$( cd "$( dirname "$this_file" )" && pwd )"
-    local repo_dir="$( cd "$( dirname "$this_dir" )" && pwd )"
+    local repo_dir="$( cd "$( dirname "$( dirname "$this_dir" )" )" && pwd )"
 
     # some configs
     [ -z "$DOCKER_ROOT" ] && local DOCKER_ROOT="0"
@@ -27,6 +27,6 @@ action() {
         -e "NB_PORT=$DOCKER_PORT" \
         -p $DOCKER_PORT:$DOCKER_PORT \
         $user_opt \
-        3pia/iml2019 $@
+        3pia/iml2019:tf2 $@
 }
 action "$@"
