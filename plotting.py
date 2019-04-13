@@ -102,8 +102,8 @@ def plot_multiple_footprints(footprint, fname=None, log_dir='.', title='', epoch
 def plot_total_signal(fake, data):
     """ histogram of #total signal values """
     fig, ax = plt.subplots(1)
-    ax.hist(fake, bins=np.arange(0, 45, 1), normed=True, label='fake', alpha=0.5)
-    ax.hist(data, bins=np.arange(0, 45, 1), normed=True, label='data', alpha=0.5)
+    ax.hist(fake, bins=np.arange(0, 45, 1), density=True, label='fake', alpha=0.5)
+    ax.hist(data, bins=np.arange(0, 45, 1), density=True, label='data', alpha=0.5)
     ax.set_xlabel('total signal')
     ax.set_ylabel('relative frequency')
     plt.legend(loc='upper right', fancybox=False)
@@ -114,8 +114,8 @@ def plot_cell_number_histo(fake, data):
     """ histogram of #station values """
     print('Plot cell number distribution')
     fig, ax = plt.subplots(1)
-    ax.hist(fake, bins=np.arange(0, 55, 1), normed=True, label='fake', alpha=0.5)
-    ax.hist(data, bins=np.arange(0, 55, 1), normed=True, label='data', alpha=0.5)
+    ax.hist(fake, bins=np.arange(0, 55, 1), density=True, label='fake', alpha=0.5)
+    ax.hist(data, bins=np.arange(0, 55, 1), density=True, label='data', alpha=0.5)
     ax.set_xlabel('number of cells with signal')
     ax.set_ylabel('relative frequency')
     plt.legend(loc='upper right', fancybox=False)
@@ -170,13 +170,13 @@ def plot_average_image(image):
 def plot_layer_correlations(image, datatype=''):
     fig, axis = plt.subplots(1, 3, figsize=(11, 4))
     fig.suptitle(datatype)
-    axis[0].hexbin(image[:, 0], image[:, 1], linewidth=0.3, mincnt=1, gridsize=50)
+    axis[0].hexbin(image[:, 0], image[:, 1], linewidth=0.3, mincnt=1, gridsize=50, extent=[0, 700, 0, 1300])
     axis[0].set_xlabel("Total signal layer 1")
     axis[0].set_ylabel("Total signal layer 2")
-    axis[1].hexbin(image[:, 0], image[:, 2], linewidth=0.3, mincnt=1, gridsize=50)
+    axis[1].hexbin(image[:, 0], image[:, 2], linewidth=0.3, mincnt=1, gridsize=50, extent=[0, 700, 0, 900])
     axis[1].set_xlabel("Total signal layer 1")
     axis[1].set_ylabel("Total signal layer 3")
-    axis[2].hexbin(image[:, 1], image[:, 2], linewidth=0.3, mincnt=1, gridsize=50)
+    axis[2].hexbin(image[:, 1], image[:, 2], linewidth=0.3, mincnt=1, gridsize=50, extent=[0, 1300, 0, 900])
     axis[2].set_xlabel("Total signal layer 2")
     axis[2].set_ylabel("Total signal layer 3")
     fig.tight_layout(rect=[0, 0.03, 1, 0.95])
